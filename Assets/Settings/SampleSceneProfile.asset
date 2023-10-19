@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: CustomOverride2
   m_EditorClassIdentifier: 
   active: 1
+  tintIntensity:
+    m_OverrideState: 0
+    m_Value: 1
   tintColor:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
-  intensity:
-    m_OverrideState: 0
-    m_Value: 1
 --- !u!114 &-7893295128165547882
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -79,12 +79,12 @@ MonoBehaviour:
   m_Name: CustomOverride2
   m_EditorClassIdentifier: 
   active: 1
+  tintIntensity:
+    m_OverrideState: 0
+    m_Value: 1
   tintColor:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
-  intensity:
-    m_OverrideState: 0
-    m_Value: 1
 --- !u!114 &-7011558710299706105
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -128,7 +128,7 @@ MonoBehaviour:
   active: 1
   tintIntensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   tintColor:
     m_OverrideState: 1
     m_Value: {r: 0.7882353, g: 0, b: 0.4627451, a: 1}
@@ -185,12 +185,12 @@ MonoBehaviour:
   m_Name: CustomOverride2
   m_EditorClassIdentifier: 
   active: 1
+  tintIntensity:
+    m_OverrideState: 0
+    m_Value: 1
   tintColor:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
-  intensity:
-    m_OverrideState: 0
-    m_Value: 1
 --- !u!114 &-2814253735824312002
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -204,12 +204,12 @@ MonoBehaviour:
   m_Name: CustomOverride2
   m_EditorClassIdentifier: 
   active: 1
+  tintIntensity:
+    m_OverrideState: 0
+    m_Value: 1
   tintColor:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
-  intensity:
-    m_OverrideState: 0
-    m_Value: 1
 --- !u!114 &-1395458868349117080
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -223,12 +223,12 @@ MonoBehaviour:
   m_Name: CustomOverride2
   m_EditorClassIdentifier: 
   active: 1
+  tintIntensity:
+    m_OverrideState: 0
+    m_Value: 1
   tintColor:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
-  intensity:
-    m_OverrideState: 0
-    m_Value: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,12 +259,12 @@ MonoBehaviour:
   m_Name: CustomOverride2
   m_EditorClassIdentifier: 
   active: 1
+  tintIntensity:
+    m_OverrideState: 0
+    m_Value: 1
   tintColor:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
-  intensity:
-    m_OverrideState: 0
-    m_Value: 1
 --- !u!114 &5789097865988150129
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -278,12 +278,12 @@ MonoBehaviour:
   m_Name: CustomOverride2
   m_EditorClassIdentifier: 
   active: 1
+  tintIntensity:
+    m_OverrideState: 0
+    m_Value: 1
   tintColor:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
-  intensity:
-    m_OverrideState: 0
-    m_Value: 1
 --- !u!114 &7683004175620988843
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -297,12 +297,12 @@ MonoBehaviour:
   m_Name: CustomOverride2
   m_EditorClassIdentifier: 
   active: 1
+  tintIntensity:
+    m_OverrideState: 0
+    m_Value: 1
   tintColor:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
-  intensity:
-    m_OverrideState: 0
-    m_Value: 1
 --- !u!114 &8682328453640592324
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -316,9 +316,9 @@ MonoBehaviour:
   m_Name: CustomOverride2
   m_EditorClassIdentifier: 
   active: 1
+  tintIntensity:
+    m_OverrideState: 0
+    m_Value: 1
   tintColor:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
-  intensity:
-    m_OverrideState: 0
-    m_Value: 1
