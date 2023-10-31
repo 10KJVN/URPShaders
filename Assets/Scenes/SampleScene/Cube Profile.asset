@@ -107,7 +107,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
   m_Name: Cube Profile
   m_EditorClassIdentifier: 
-  components: []
+  components:
+  - {fileID: 1413066199175499396}
+--- !u!114 &452191846970838471
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a225c24aa2497469b8930b727a1f82, type: 3}
+  m_Name: CustomPostScreenTint
+  m_EditorClassIdentifier: 
+  active: 1
+  tintIntensity:
+    m_OverrideState: 0
+    m_Value: 1
+  tintColor:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1413066199175499396
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a225c24aa2497469b8930b727a1f82, type: 3}
+  m_Name: CustomPostScreenTint
+  m_EditorClassIdentifier: 
+  active: 1
+  tintIntensity:
+    m_OverrideState: 0
+    m_Value: 1
+  tintColor:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2789342097411063280
 MonoBehaviour:
   m_ObjectHideFlags: 3
