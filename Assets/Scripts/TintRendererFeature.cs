@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
- public class TintRendererFeature : ScriptableRendererFeature
- { 
-     private TintPass tintPass;
+public class TintRendererFeature : ScriptableRendererFeature
+{ 
+    private TintPass tintPass;
      
     public override void Create()
     {
