@@ -3,10 +3,11 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-namespace Custom_Overrides
+namespace Settings
 {
-    [Serializable, VolumeComponentMenu("NeonGame/CustomPostScreenTint2")]
-    public class CustomOverride2 : VolumeComponent, IPostProcessComponent
+    [Serializable, VolumeComponentMenuForRenderPipeline("NeonGame/CustomPostScreenTint", typeof(UniversalRenderPipeline))]
+
+    public class CustomPostScreenTint : VolumeComponent, IPostProcessComponent
     {
         public FloatParameter tintIntensity = new FloatParameter(1);
         public ColorParameter tintColor = new ColorParameter(Color.white);
@@ -14,4 +15,3 @@ namespace Custom_Overrides
         public bool IsTileCompatible() => true;
     }
 }
-
