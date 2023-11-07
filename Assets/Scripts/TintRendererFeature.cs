@@ -1,8 +1,8 @@
 using System;
-using Settings;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using Rendering;
 
 public class TintRendererFeature : ScriptableRendererFeature
 { 
@@ -20,7 +20,7 @@ public class TintRendererFeature : ScriptableRendererFeature
     
     class TintPass : ScriptableRenderPass
     {
-        private Material _mat;
+        private readonly Material _mat;
         int tintId = Shader.PropertyToID("_Temp");
         RenderTargetIdentifier src, tint;
 

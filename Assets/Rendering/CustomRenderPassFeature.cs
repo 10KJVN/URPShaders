@@ -1,7 +1,7 @@
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-namespace Settings
+namespace Rendering
 {
     public class CustomRenderPassFeature : ScriptableRendererFeature
     {

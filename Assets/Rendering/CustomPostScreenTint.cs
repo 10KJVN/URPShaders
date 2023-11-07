@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-namespace Settings
+namespace Rendering
 {
     [Serializable, VolumeComponentMenuForRenderPipeline("NeonGame/CustomPostScreenTint", typeof(UniversalRenderPipeline))]
 
