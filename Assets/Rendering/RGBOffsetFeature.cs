@@ -1,27 +1,24 @@
-using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 namespace Rendering
 {
-    [Obsolete("Obsolete")]
     public class RGBOffsetFeature : ScriptableRendererFeature
     {
         private Material _material;
         private RenderTargetIdentifier _source;
-        private RenderTargetHandle _tempTexture;
+        private RTHandle _tempTexture;
 
         private class RenderPass : ScriptableRenderPass
         {
             private Material _material;
             private RenderTargetIdentifier _source;
-            private RenderTargetHandle _tempTexture;
+            private RTHandle _tempTexture;
 
             public RenderPass(Material material)
             {
                 this._material = material;
-                _tempTexture.Init("_TempRGBTexture");
             }
 
             public void SetSource(RenderTargetIdentifier source)
@@ -35,18 +32,23 @@ namespace Rendering
 
                 RenderTextureDescriptor cameraTextureDesc = renderingData.cameraData.cameraTargetDescriptor;
                 cameraTextureDesc.depthBufferBits = 0;
-                cmd.GetTemporaryRT(_tempTexture.id, cameraTextureDesc, FilterMode.Bilinear);
 
-                Blit(cmd, _source, _tempTexture.Identifier(), _material, 0);
-                Blit(cmd, _tempTexture.Identifier(), _source);
-                
+                // Allocate RTHandle
+                _tempTexture = RTHandles.Alloc(cameraTextureDesc);
+
+                cmd.Blit(_source, _tempTexture, _material);
+                cmd.Blit(_tempTexture, _source);
+
                 context.ExecuteCommandBuffer(cmd);
                 CommandBufferPool.Release(cmd);
+
+                // Release the RTHandle
+                RTHandles.Release(_tempTexture);
             }
 
             public override void FrameCleanup(CommandBuffer cmd)
             {
-                cmd.ReleaseTemporaryRT(_tempTexture.id);
+                // No need to release the RTHandle here; it's released after Execute
             }
         }
 

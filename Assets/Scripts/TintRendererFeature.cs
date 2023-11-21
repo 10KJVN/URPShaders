@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -43,7 +42,7 @@ public class TintRendererFeature : ScriptableRendererFeature
         
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
-            CommandBuffer commandBuffer = CommandBufferPool.Get("TintRenderFeature");
+            CommandBuffer cmd = CommandBufferPool.Get("TintRenderFeature");
             VolumeStack volumes = VolumeManager.instance.stack;
             CustomPostScreenTint tintData = volumes.GetComponent<CustomPostScreenTint>();
             if (tintData.IsActive())
@@ -51,12 +50,12 @@ public class TintRendererFeature : ScriptableRendererFeature
                 _mat.SetColor("_OverlayColor", (Color)tintData.tintColor);
                 _mat.SetFloat("_OverlayIntensity", (float)tintData.tintIntensity);
 
-                Blit(commandBuffer, src, tint, _mat, 0);
-                Blit(commandBuffer, tint, src);
+                cmd.Blit(src, tint, _mat, 0);
+                cmd.Blit(tint, src);
             }
 
-            context.ExecuteCommandBuffer(commandBuffer);
-            CommandBufferPool.Release(commandBuffer);
+            context.ExecuteCommandBuffer(cmd);
+            CommandBufferPool.Release(cmd);
         }
 
         public override void OnCameraCleanup(CommandBuffer cmd)
