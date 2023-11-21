@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d613f08f173d4dd895bb07b3230baa9, type: 3}
   m_Name: FullScreenPassRendererFeature
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   passMaterial: {fileID: -876546973899608171, guid: c9151aca430e91c4299f8e058c44cdfd, type: 3}
   injectionPoint: 600
   requirements: 4
@@ -84,12 +84,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: RGBOffsetObject
+  m_Name: RGBOffsetFeature
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    passTag: RGBOffsetObject
-    Event: 300
+    passTag: RGBOffsetFeature
+    Event: 250
     filterSettings:
       RenderQueueType: 1
       LayerMask:
