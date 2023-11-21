@@ -1,38 +1,44 @@
+using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-/*namespace Rendering
+namespace Rendering
 {
+    [Obsolete("Obsolete")]
     public class RGBOffsetFeature : ScriptableRendererFeature
     {
-        private Material material;
-        private RenderTargetIdentiefier source;
-        private RenderTargetHandle tempTexture;
+        private Material _material;
+        private RenderTargetIdentifier _source;
+        private RenderTargetHandle _tempTexture;
 
         private class RenderPass : ScriptableRenderPass
         {
-            public RenderPass(Material material) : base()
+            private Material _material;
+            private RenderTargetIdentifier _source;
+            private RenderTargetHandle _tempTexture;
+
+            public RenderPass(Material material)
             {
-                this.material = material;
-                tempTexture.Init("TempRGBTexture");
+                this._material = material;
+                _tempTexture.Init("_TempRGBTexture");
             }
-            
+
             public void SetSource(RenderTargetIdentifier source)
             {
-                this.source = source;
+                this._source = source;
             }
 
             public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
             {
                 CommandBuffer cmd = CommandBufferPool.Get("RGBOffsetFeature");
-                
+
                 RenderTextureDescriptor cameraTextureDesc = renderingData.cameraData.cameraTargetDescriptor;
                 cameraTextureDesc.depthBufferBits = 0;
-                cmd.GetTemporaryRT(tempTexture.id, cameraTextureDesc, FilterMode.Bilinear);
+                cmd.GetTemporaryRT(_tempTexture.id, cameraTextureDesc, FilterMode.Bilinear);
 
-                Blit(cmd, source, tempTexture.Identifier(), material, 0);
-                Blit(cmd, tempTexture.Identifier(), source);
+                Blit(cmd, _source, _tempTexture.Identifier(), _material, 0);
+                Blit(cmd, _tempTexture.Identifier(), _source);
                 
                 context.ExecuteCommandBuffer(cmd);
                 CommandBufferPool.Release(cmd);
@@ -40,29 +46,25 @@ using UnityEngine.Rendering.Universal;
 
             public override void FrameCleanup(CommandBuffer cmd)
             {
-                cmd.ReleaseTemporaryRT(tempTexture.id);
+                cmd.ReleaseTemporaryRT(_tempTexture.id);
             }
         }
 
-        private RenderPass renderPass;
-        
+        private RenderPass _renderPass;
+
         public override void Create()
         {
-            var material = new Material(Shader.find("Shader Graphs/Full Screen ShaderGraph"));
-            this.renderPass = new Renderpass(material);
-
-            renderPass = new RenderPass
+            _material = new Material(Shader.Find("Shader Graphs/RGBO"));
+            _renderPass = new RenderPass(_material)
             {
                 renderPassEvent = RenderPassEvent.AfterRenderingPostProcessing
             };
         }
-        
+
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
-            renderPass.SetSource(renderer.cameraColorTargetHandle);
-            renderer.EnqueuePass(renderPass);
+            _renderPass.SetSource(renderer.cameraColorTargetHandle);
+            renderer.EnqueuePass(_renderPass);
         }
     }
 }
-*/
-

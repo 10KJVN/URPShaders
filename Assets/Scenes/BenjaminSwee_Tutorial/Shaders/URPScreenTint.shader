@@ -1,4 +1,4 @@
-Shader "CustomPost/ScreenTint"
+    Shader "CustomPost/ScreenTint"
 {
     Properties
     {
@@ -26,7 +26,7 @@ Shader "CustomPost/ScreenTint"
 
             struct appdata
             {
-                float4 vertex : SV_POSITION;
+                float4 vertex : POSITION;
                 float2 uv : TEXCOORD0;
             };
 
@@ -39,7 +39,6 @@ Shader "CustomPost/ScreenTint"
             v2f vert (appdata v)
             {
                 v2f o;
-                const float3 position = float3(v.vertex.xyz); // Convert vertex position to float4
                 o.vertex = TransformObjectToHClip(v.vertex);
                 o.uv = v.uv;
                 return o;
