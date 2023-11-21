@@ -40,8 +40,7 @@ public class TintRendererFeature : ScriptableRendererFeature
             cmd.GetTemporaryRT(tintId, desc, FilterMode.Bilinear);
             tint = new RenderTargetIdentifier(tintId);
         }
-
-        [Obsolete("Obsolete")]
+        
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
             CommandBuffer commandBuffer = CommandBufferPool.Get("TintRenderFeature");
