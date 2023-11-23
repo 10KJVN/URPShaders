@@ -1,0 +1,7 @@
+Shader "Shaders/TestDepth"
+{
+    properties
+    {
+        
+    }
+}
