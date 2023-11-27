@@ -111,7 +111,7 @@ Material:
     - _AlphaToMask: 0
     - _BUILTIN_QueueControl: -1
     - _BUILTIN_QueueOffset: 0
-    - _BleedAmount: 0.637
+    - _BleedAmount: 1
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
