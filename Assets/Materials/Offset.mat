@@ -135,6 +135,7 @@ Material:
     - _BleedAmount: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
+    - _Blurry: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -152,8 +153,9 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _Offset: 1
+    - _Offset: 0
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _RGBSplit: 0
     - _RGB_Split: 1
