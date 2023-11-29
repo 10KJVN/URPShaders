@@ -32,7 +32,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: _EffectMultiply
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -66,7 +66,7 @@ Material:
     - _EffectMultiply: 0
     - _Fullscreen_DepthWrite: 0
     - _Offset: 0
-    - _QueueControl: 0
+    - _QueueControl: 1
     - _QueueOffset: 0
     m_Colors: []
   m_BuildTextureStacks: []
