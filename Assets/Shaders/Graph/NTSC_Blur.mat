@@ -26,7 +26,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -61,8 +61,8 @@ Material:
     - _BUILTIN_ZTest: 4
     - _BUILTIN_ZWrite: 1
     - _BUILTIN_ZWriteControl: 0
-    - _BleedAmount: 0
-    - _Blurry: 0.004
+    - _BleedAmount: -1
+    - _Blurry: 0.0054
     - _EffectMultiply: 0
     - _Fullscreen_DepthWrite: 0
     - _Offset: 0
