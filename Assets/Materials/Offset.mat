@@ -139,7 +139,7 @@ Material:
     - _BleedAmount: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _Blurry: 0
+    - _Blurry: 0.0317
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
