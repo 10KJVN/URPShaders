@@ -461,7 +461,7 @@
             },
             "m_InputSlot": {
                 "m_Node": {
-                    "m_Id": "f0b14eb99dd54184a0fee821cc0afbb9"
+                    "m_Id": "84b499685b584947a82510f16b153399"
                 },
                 "m_SlotId": 0
             }
@@ -665,20 +665,6 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "f0b14eb99dd54184a0fee821cc0afbb9"
-                },
-                "m_SlotId": 2
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "84b499685b584947a82510f16b153399"
-                },
-                "m_SlotId": 0
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
                     "m_Id": "f2f2f067d9484b149e6263c9b798c120"
                 },
                 "m_SlotId": 2
@@ -774,8 +760,8 @@
     "m_ObjectId": "067a8228fbba4e8b969ec2610962a700",
     "m_Title": "More detailed Blurring",
     "m_Position": {
-        "x": 1294.0,
-        "y": 7224.22998046875
+        "x": -972.0,
+        "y": -625.0000610351563
     }
 }
 
@@ -2493,10 +2479,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 1024.0,
-            "y": -101.99999237060547,
-            "width": 86.0,
-            "height": 76.99999237060547
+            "x": 741.0,
+            "y": -102.99996185302735,
+            "width": 98.0,
+            "height": 76.99996185302735
         }
     },
     "m_Slots": [
@@ -3717,17 +3703,17 @@
     "m_Type": "UnityEditor.ShaderGraph.DivideNode",
     "m_ObjectId": "f0b14eb99dd54184a0fee821cc0afbb9",
     "m_Group": {
-        "m_Id": "067a8228fbba4e8b969ec2610962a700"
+        "m_Id": ""
     },
     "m_Name": "Divide",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 809.25,
-            "y": -103.5,
-            "width": 130.0,
-            "height": 118.0
+            "x": 805.9999389648438,
+            "y": 82.99999237060547,
+            "width": 126.0001220703125,
+            "height": 118.0000228881836
         }
     },
     "m_Slots": [
