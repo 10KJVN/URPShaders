@@ -66,12 +66,13 @@ Material:
     - _BUILTIN_ZWrite: 1
     - _BUILTIN_ZWriteControl: 0
     - _BleedAmount: -0.5
-    - _Blurry: 0.0025
+    - _Blurry: 0
     - _EffectMultiply: 0
     - _Fullscreen_DepthWrite: 0
     - _Offset: 0
     - _QueueControl: 1
     - _QueueOffset: 0
+    - _SampleDepth: 0
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &3284595047537788953

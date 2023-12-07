@@ -139,7 +139,7 @@ Material:
     - _BleedAmount: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _Blurry: 0.0317
+    - _Blurry: 0.0052
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -164,6 +164,7 @@ Material:
     - _RGBSplit: 0
     - _RGB_Split: 1
     - _ReceiveShadows: 1
+    - _SampleDepth: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
