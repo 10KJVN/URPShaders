@@ -6,13 +6,17 @@ Shader "Shaders/FMShader_ScreenDepthNormal"
     }
     SubShader
     {
-        // No culling or depth
-        Cull Off ZWrite Off ZTest Always
+        Tags
+        {
+            "RenderType"="Opaque"
+        }
+        LOD 100
 
         Pass
         {
             CGPROGRAM
             #pragma vertex vert
+            #pragma exclude_renderers gles xbox360 ps3
             #pragma fragment frag
             #include "UnityCG.cginc"
 
@@ -47,7 +51,7 @@ Shader "Shaders/FMShader_ScreenDepthNormal"
 
                 //Assign NormalXYZ to Depth to FloatW;
                 float4 NormalDepth;
-                
+
                 //Decode Depth Normal maps: (InputTex, out Depth, out NormalXYZ)
                 DecodeDepthNormal(tex2D(_CameraDepthNormalsTexture, i.uv), NormalDepth.w, NormalDepth.xyz);
 
@@ -67,7 +71,7 @@ Shader "Shaders/FMShader_ScreenDepthNormal"
                 //Debugging
                 if(i.uv.x > 2.0/3.0) col.rgb = NormalDepth.w;
                 if(i.uv.x < 1.0 / 3.0) col.rgb = WorldNormal;
-                
+
                 return col;
             }
             ENDCG

@@ -1,45 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
-[ExecuteInEditMode]
+[ExecuteAlways]
 [RequireComponent(typeof(Camera))]
-
 public class FM_ScreenDepthNormal : MonoBehaviour
 {
-    public Camera Cam;
     public Material Mat;
-    
-    void Start()
-    {
-        
-    }
-    
-    void Update()
-    {
-        if (Cam == null)
-        {
-            Cam = this.GetComponent<Camera>();
-            Cam.depthTextureMode = DepthTextureMode.DepthNormals;
-        }
 
+    void OnEnable()
+    {
+        RenderPipelineManager.beginCameraRendering += BeginCameraRendering;
+    }
+
+    void OnDisable()
+    {
+        RenderPipelineManager.beginCameraRendering -= BeginCameraRendering;
+    }
+
+    void BeginCameraRendering(ScriptableRenderContext context, Camera camera)
+    {
         if (Mat == null)
-        {  
-            //assign shader "Hidden/FMShader_ScreenDepthNormal" to Mat
-            Mat = new Material(Shader.Find("Shaders/FMShader_ScreenDepthNormal"));
+        {
+            Mat = new Material(Shader.Find("Universal Render Pipeline/FMShader_ScreenDepthNormal"));
         }
-    }
 
-    private void OnPreRender()
-    {
         //pass this camera matrix data to screen shader
-        Shader.SetGlobalMatrix(Shader.PropertyToID("UNITY_MATRIX_IV"), Cam.cameraToWorldMatrix);
+        Shader.SetGlobalMatrix(Shader.PropertyToID("UNITY_MATRIX_IV"), camera.cameraToWorldMatrix);
     }
 
-    private void OnRenderImage(RenderTexture source, RenderTexture destination)
+    void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
-        //Graphics.Blit(source, destination);
-        
         //render source to screen w/ shader
         Graphics.Blit(source, destination, Mat);
     }
