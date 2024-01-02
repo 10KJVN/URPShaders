@@ -53,7 +53,7 @@ MonoBehaviour:
   m_ShadowTransparentReceive: 1
   m_RenderingMode: 0
   m_DepthPrimingMode: 0
-  m_CopyDepthMode: 1
+  m_CopyDepthMode: 0
   m_AccurateGbufferNormals: 1
   m_IntermediateTextureMode: 1
 --- !u!114 &886079899250562386
@@ -72,7 +72,7 @@ MonoBehaviour:
   injectionPoint: 450
   fetchColorBuffer: 1
   requirements: 5
-  passMaterial: {fileID: 2100000, guid: f07c834ac1841a242ac098e7f355146c, type: 2}
+  passMaterial: {fileID: -876546973899608171, guid: c9151aca430e91c4299f8e058c44cdfd, type: 3}
   passIndex: 0
   bindDepthStencilAttachment: 0
   m_Version: 1
