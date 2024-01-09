@@ -461,7 +461,7 @@
             },
             "m_InputSlot": {
                 "m_Node": {
-                    "m_Id": "84b499685b584947a82510f16b153399"
+                    "m_Id": "f0b14eb99dd54184a0fee821cc0afbb9"
                 },
                 "m_SlotId": 0
             }
@@ -660,6 +660,20 @@
                     "m_Id": "0ad9fc3dca524ac0a266823e9f46c5e2"
                 },
                 "m_SlotId": 2
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "f0b14eb99dd54184a0fee821cc0afbb9"
+                },
+                "m_SlotId": 2
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "84b499685b584947a82510f16b153399"
+                },
+                "m_SlotId": 0
             }
         },
         {
@@ -1062,21 +1076,6 @@
         "x": 0.0,
         "y": 0.0
     },
-    "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
-    "m_ObjectId": "1c73b67797044f9d9720c963f0ff968c",
-    "m_Id": 0,
-    "m_DisplayName": "FinalBlur",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "FinalBlur",
-    "m_StageCapability": 2,
-    "m_Value": 0.0,
-    "m_DefaultValue": 0.0,
     "m_Labels": []
 }
 
@@ -1632,17 +1631,17 @@
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "3784898aa5d64e51baf26d61143f5390",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "067a8228fbba4e8b969ec2610962a700"
     },
     "m_Name": "Property",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -879.75,
-            "y": 355.5,
-            "width": 0.0,
-            "height": 0.0
+            "x": -879.9999389648438,
+            "y": 304.0000305175781,
+            "width": 106.0,
+            "height": 33.999969482421878
         }
     },
     "m_Slots": [
@@ -2479,15 +2478,15 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 741.0,
-            "y": -102.99996185302735,
+            "x": 1046.0,
+            "y": -103.00000762939453,
             "width": 98.0,
-            "height": 76.99996185302735
+            "height": 76.99999237060547
         }
     },
     "m_Slots": [
         {
-            "m_Id": "1c73b67797044f9d9720c963f0ff968c"
+            "m_Id": "b7642c1a01f04420b1c80f4319b197bd"
         }
     ],
     "synonyms": [],
@@ -2969,17 +2968,17 @@
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "b525ea6f155e44628c7a5e840e5d27b6",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "067a8228fbba4e8b969ec2610962a700"
     },
     "m_Name": "Property",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -627.4166259765625,
-            "y": -233.5,
-            "width": 0.0,
-            "height": 0.0
+            "x": -879.9999389648438,
+            "y": -262.9999694824219,
+            "width": 106.0,
+            "height": 33.999969482421878
         }
     },
     "m_Slots": [
@@ -2998,6 +2997,29 @@
     "m_Property": {
         "m_Id": "d85e6f56a3924e3f80f628a6d7470c61"
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
+    "m_ObjectId": "b7642c1a01f04420b1c80f4319b197bd",
+    "m_Id": 0,
+    "m_DisplayName": "BlurOut",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "BlurOut",
+    "m_StageCapability": 2,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_Labels": []
 }
 
 {
@@ -3710,9 +3732,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 805.9999389648438,
-            "y": 82.99999237060547,
-            "width": 126.0001220703125,
+            "x": 816.0,
+            "y": -103.0,
+            "width": 130.0,
             "height": 118.0000228881836
         }
     },
