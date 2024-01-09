@@ -22,7 +22,7 @@ Shader "Custom/URP_BaseShader"
                 float4 vertex : POSITION;
                 float2 uv : TEXCOORD0;
                 float4 normal : NORMAL;
-
+                float3 texcoord1 : TEXCOORD1;
             };
 
             struct v2f
@@ -32,6 +32,7 @@ Shader "Custom/URP_BaseShader"
                 float3 positionWS : TEXCOORD1;
                 float3 normalWS : TEXCOORD2;
                 float3 viewDir : TEXCOORD3;
+                DECLARE_LIGHTMAP_OR_SH(lightmapUV, vertexSH, 4);
             };
 
             sampler2D _MainTex;
@@ -45,6 +46,10 @@ Shader "Custom/URP_BaseShader"
                 o.viewDir = _WorldSpaceCameraPos - o.positionWS;
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 o.vertex = TransformWorldToHClip(o.positionWS);
+
+                OUTPUT_LIGHTMAP_UV( v.texcoord1, unity_LightmapST, o.lightmapUV );
+                OUTPUT_SH(o.normalWS.xyz, o.vertexSH);
+
                 return o;
             }
 
@@ -56,8 +61,8 @@ Shader "Custom/URP_BaseShader"
                 inputdata.positionWS = i.positionWS;
                 inputdata.normalWS = i.normalWS; 
                 inputdata.viewDirectionWS = i.viewDir;
-                inputdata.bakedGI = 0; 
-                
+                inputdata.bakedGI = SAMPLE_GI ( i.lightmapUV, i.vertexSH, inputdata.normalWS ); 
+
                 SurfaceData surfacedata;
                 return col;
             }
