@@ -64,6 +64,17 @@ Shader "Custom/URP_BaseShader"
                 inputdata.bakedGI = SAMPLE_GI ( i.lightmapUV, i.vertexSH, inputdata.normalWS ); 
 
                 SurfaceData surfacedata;
+                surfacedata.albedo = 0;
+                surfacedata.specular = 0;
+                surfacedata.metallic = 0;
+                surfacedata.smoothness = 0;
+                surfacedata.normalTS = 0;
+                surfacedata.emission = 0;
+                surfacedata.occlusion = 0;
+                surfacedata.alpha = 0;
+                surfacedata.clearCoatMask = 0;
+                surfacedata.clearCoatSmoothness = 0;
+
                 return col;
             }
             ENDHLSL
