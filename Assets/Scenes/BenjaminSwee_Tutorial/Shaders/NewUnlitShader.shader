@@ -38,7 +38,7 @@ Shader "Custom/URP_BaseShader"
                 v2f o;
                 o.positionWS = TransformObjectToWorld(v.vertex.xyz);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                o.vertex = v.vertex;
+                o.vertex = TransformWorldToHClip(o.positionWS);
                 return o;
             }
 
