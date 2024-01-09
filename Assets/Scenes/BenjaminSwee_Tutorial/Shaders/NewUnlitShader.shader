@@ -14,10 +14,9 @@ Shader "Custom/URP_BaseShader"
             HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            // make fog work
-            #pragma multi_compile_fog
-
+            
             #include "UnityCG.cginc"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
 
             struct appdata
             {
@@ -46,6 +45,8 @@ Shader "Custom/URP_BaseShader"
             {
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
+                InputData inputdata = (inputdata)0;
+                SurfaceData surfacedata;
                 return col;
             }
             ENDHLSL
