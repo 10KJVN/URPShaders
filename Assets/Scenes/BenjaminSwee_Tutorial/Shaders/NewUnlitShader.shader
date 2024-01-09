@@ -15,7 +15,6 @@ Shader "Custom/URP_BaseShader"
             #pragma vertex vert
             #pragma fragment frag
             
-            #include "UnityCG.cginc"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
 
             struct appdata
