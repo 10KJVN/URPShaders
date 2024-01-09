@@ -46,6 +46,10 @@ Shader "Custom/URP_BaseShader"
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
                 InputData inputdata = (inputdata)0;
+                inputdata.positionWS = 0;
+                inputdata.normalWS = 0; 
+                inputdata.viewDirectionWS = 0;
+                inputdata.bakedGI = 0; 
                 SurfaceData surfacedata;
                 return col;
             }
