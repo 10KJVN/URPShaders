@@ -86,12 +86,12 @@ Material:
     - _EffectMultiply: 0
     - _Fullscreen_DepthWrite: 0
     - _Offset: 0
-    - _QueueControl: 1
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _SampleDepth: 0
     m_Colors:
-    - _Background_Color: {r: 1, g: 1, b: 1, a: 0}
-    - _Foreground_Color: {r: 0, g: 0, b: 0.3137255, a: 0}
+    - _Background_Color: {r: 0.023529412, g: 0.21176471, b: 0.73333335, a: 0}
+    - _Foreground_Color: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3284595047537788953
 MonoBehaviour:
