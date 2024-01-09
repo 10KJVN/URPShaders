@@ -35,7 +35,7 @@ Shader "Custom/URP_BaseShader"
             v2f vert (appdata v)
             {
                 v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.vertex.xyz = TransformObjectToWorld(v.vertex.xyz);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 return o;
             }
