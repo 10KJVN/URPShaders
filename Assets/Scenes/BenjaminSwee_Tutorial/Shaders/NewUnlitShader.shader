@@ -31,6 +31,7 @@ Shader "Custom/URP_BaseShader"
                 float2 uv : TEXCOORD0;
                 float3 positionWS : TEXCOORD1;
                 float3 normalWS : TEXCOORD2;
+                float3 viewDir : TEXCOORD3;
             };
 
             sampler2D _MainTex;
@@ -41,6 +42,7 @@ Shader "Custom/URP_BaseShader"
                 v2f o;
                 o.positionWS = TransformObjectToWorld(v.vertex.xyz);
                 o. normalWS = TransformObjectToWorldNormal(v.normal.xyz);
+                o.viewDir = _WorldSpaceCameraPos - o.positionWS;
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 o.vertex = TransformWorldToHClip(o.positionWS);
                 return o;
@@ -53,8 +55,9 @@ Shader "Custom/URP_BaseShader"
                 InputData inputdata = (InputData)0;
                 inputdata.positionWS = i.positionWS;
                 inputdata.normalWS = i.normalWS; 
-                inputdata.viewDirectionWS = 0;
+                inputdata.viewDirectionWS = i.viewDir;
                 inputdata.bakedGI = 0; 
+                
                 SurfaceData surfacedata;
                 return col;
             }
