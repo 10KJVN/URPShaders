@@ -25,8 +25,9 @@ Shader "Custom/URP_BaseShader"
 
             struct v2f
             {
-                float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
+                float2 uv : TEXCOORD0;
+                float3 positionWS : TEXCOORD1;
             };
 
             sampler2D _MainTex;
@@ -35,8 +36,9 @@ Shader "Custom/URP_BaseShader"
             v2f vert (appdata v)
             {
                 v2f o;
-                o.vertex.xyz = TransformObjectToWorld(v.vertex.xyz);
+                o.positionWS = TransformObjectToWorld(v.vertex.xyz);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                o.vertex = v.vertex;
                 return o;
             }
 
@@ -44,7 +46,7 @@ Shader "Custom/URP_BaseShader"
             {
                 // sample the texture
                 half4 col = tex2D(_MainTex, i.uv);
-                InputData inputdata = (inputdata)0;
+                InputData inputdata = (InputData)0;
                 inputdata.positionWS = 0;
                 inputdata.normalWS = 0; 
                 inputdata.viewDirectionWS = 0;
