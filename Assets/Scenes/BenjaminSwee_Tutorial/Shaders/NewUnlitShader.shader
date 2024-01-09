@@ -75,7 +75,7 @@ Shader "Custom/URP_BaseShader"
                 surfacedata.clearCoatMask = 0;
                 surfacedata.clearCoatSmoothness = 0;
 
-                return col;
+                return UniversalFragmentPBR(inputdata, surfacedata);
             }
             ENDHLSL
         }
