@@ -51,7 +51,7 @@ Shader "Custom/URP_BaseShader"
                 o. normalWS = TransformObjectToWorldNormal(v.normal.xyz);
                 o.viewDir = normalize(_WorldSpaceCameraPos - o.positionWS);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                o.vertex = TransformWorldToHClip(o.positionWS);
+                o.vertex = TransformWorldToHClip(o.positionWS); //o.vertex = TransformObjectToHClip(v.vertex) -> Works too, the exact same somewhy?
 
                 OUTPUT_LIGHTMAP_UV( v.texcoord1, unity_LightmapST, o.lightmapUV );
                 OUTPUT_SH(o.normalWS.xyz, o.vertexSH);
