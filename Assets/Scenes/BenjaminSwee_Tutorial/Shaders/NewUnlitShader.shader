@@ -65,7 +65,7 @@ Shader "Custom/URP_BaseShader"
                 half4 col = tex2D(_MainTex, i.uv);
                 InputData inputdata = (InputData)0;
                 inputdata.positionWS = i.positionWS;
-                inputdata.normalWS = i.normalWS; 
+                inputdata.normalWS = normalize(i.normalWS); 
                 inputdata.viewDirectionWS = i.viewDir;
                 inputdata.bakedGI = SAMPLE_GI ( i.lightmapUV, i.vertexSH, inputdata.normalWS ); 
 
