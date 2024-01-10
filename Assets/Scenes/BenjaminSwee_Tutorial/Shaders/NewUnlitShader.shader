@@ -76,7 +76,7 @@ Shader "Custom/URP_BaseShader"
                 surfacedata.smoothness = _Smoothness;
                 surfacedata.normalTS = 0;
                 surfacedata.emission = 0;
-                surfacedata.occlusion = 0;
+                surfacedata.occlusion = 1;
                 surfacedata.alpha = 0;
                 surfacedata.clearCoatMask = 0;
                 surfacedata.clearCoatSmoothness = 0;
