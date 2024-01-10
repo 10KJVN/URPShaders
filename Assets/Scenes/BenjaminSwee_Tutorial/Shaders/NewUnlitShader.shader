@@ -3,6 +3,9 @@ Shader "Custom/URP_BaseShader"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _BaseColor("Base Color", color) = (1,1,1,1)
+        _Smoothness("Smoothness", Range(0,1)) = 0
+        _Metallic("Metallic", Range(0,1)) = 0
     }
     SubShader
     {
