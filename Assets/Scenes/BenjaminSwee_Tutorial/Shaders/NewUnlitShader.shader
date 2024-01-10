@@ -41,6 +41,9 @@ Shader "Custom/URP_BaseShader"
             sampler2D _MainTex;
             float4 _MainTex_ST;
 
+            float4 _BaseColor;
+            float _Smoothness, _Metallic; 
+
             v2f vert (appdata v)
             {
                 v2f o;
@@ -67,10 +70,10 @@ Shader "Custom/URP_BaseShader"
                 inputdata.bakedGI = SAMPLE_GI ( i.lightmapUV, i.vertexSH, inputdata.normalWS ); 
 
                 SurfaceData surfacedata;
-                surfacedata.albedo = 0;
+                surfacedata.albedo = _BaseColor;
                 surfacedata.specular = 0;
-                surfacedata.metallic = 0;
-                surfacedata.smoothness = 0;
+                surfacedata.metallic = _Metallic;
+                surfacedata.smoothness = _Smoothness;
                 surfacedata.normalTS = 0;
                 surfacedata.emission = 0;
                 surfacedata.occlusion = 0;
