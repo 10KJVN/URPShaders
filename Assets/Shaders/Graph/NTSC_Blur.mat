@@ -83,7 +83,7 @@ Material:
     - _BUILTIN_ZWriteControl: 0
     - _BleedAmount: -0.5
     - _Blurry: 0.004
-    - _EffectMultiply: 0
+    - _EffectMultiply: 0.349
     - _Fullscreen_DepthWrite: 0
     - _Offset: 0
     - _QueueControl: 0
