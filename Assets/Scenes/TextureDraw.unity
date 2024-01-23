@@ -338,7 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brush: {fileID: 2800000, guid: 8fd390102ee66a041b7a068e62765b1a, type: 3}
   destination: {fileID: 8400000, guid: b84bd6dda5e209148b35b73cd02265fe, type: 2}
-  scale: 1
+  scale: 0.1
   opacity: 1
   textureDrawer: {fileID: 294593390}
   blendMaterial: {fileID: 2100000, guid: 50c3cdbb330d9604a8962ee52c6852d6, type: 2}
@@ -681,11 +681,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 420624641141462095, guid: 2a8c6304cd4786a43ae42c8832cb1130, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.55
       objectReference: {fileID: 0}
     - target: {fileID: 420624641141462095, guid: 2a8c6304cd4786a43ae42c8832cb1130, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 420624641141462095, guid: 2a8c6304cd4786a43ae42c8832cb1130, type: 3}
       propertyPath: m_LocalPosition.z
