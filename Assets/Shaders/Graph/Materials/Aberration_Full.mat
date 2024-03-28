@@ -39,7 +39,7 @@ Material:
     m_Floats:
     - _Blurry: 0.004
     - _EffectMultiply: 1
-    - _Offset: 0.003
+    - _Offset: 0.006
     m_Colors:
     - _Background_Color: {r: 0, g: 0, b: 0, a: 0}
     - _Foreground_Color: {r: 1, g: 1, b: 1, a: 0}
