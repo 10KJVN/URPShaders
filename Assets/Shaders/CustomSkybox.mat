@@ -65,13 +65,13 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _HorizonBlend: 24.05
-    - _NadirBlend: 0.5
+    - _HorizonBlend: 20
+    - _NadirBlend: 0.9
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ZenithBlend: 1.5
+    - _ZenithBlend: 0.4
     m_Colors:
-    - _GroundColor: {r: 0.09019608, g: 0.09019608, b: 0.38431373, a: 0}
+    - _GroundColor: {r: 0, g: 0, b: 0.5019608, a: 0}
     - _HorizonColor: {r: 0.18039216, g: 0.03137255, b: 0.32941177, a: 0}
     - _SkyColor: {r: 0.09803922, g: 0.09803922, b: 0.4392157, a: 0}
   m_BuildTextureStacks: []
