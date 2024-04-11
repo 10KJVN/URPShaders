@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using Rendering;
 
 public class TintRendererFeature : ScriptableRendererFeature
 { 
@@ -16,8 +15,8 @@ public class TintRendererFeature : ScriptableRendererFeature
     {
         renderer.EnqueuePass(tintPass);
     }
-    
-    class TintPass : ScriptableRenderPass
+
+    private class TintPass : ScriptableRenderPass
     {
         private readonly Material _mat;
         int tintId = Shader.PropertyToID("_Temp");
