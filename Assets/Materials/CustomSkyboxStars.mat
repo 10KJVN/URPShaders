@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 7
+  version: 9
 --- !u!114 &-1472089025216207973
 MonoBehaviour:
   m_ObjectHideFlags: 11
@@ -44,7 +44,8 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -73,10 +74,13 @@ Material:
     - _StarHeight: 163
     - _StarIntensity: 100
     - _StarPower: 30
+    - _SunSize: 0.2
     - _ZenithBlend: 0.4
     m_Colors:
     - _GroundColor: {r: 0, g: 0, b: 0.5019608, a: 0}
     - _HorizonColor: {r: 0.18039216, g: 0.03137255, b: 0.32941177, a: 0}
     - _NightSkyColor: {r: 0.09803919, g: 0.09803919, b: 0.43921566, a: 0}
     - _SkyColor: {r: 0.09803922, g: 0.09803922, b: 0.4392157, a: 0}
+    - _SunColor: {r: 7.937255, g: 5.772549, b: 0.5960785, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
