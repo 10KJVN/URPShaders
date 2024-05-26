@@ -149,7 +149,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _EffectMultiply: 1
+    - _EffectMultiply: 0.3
     - _EnvironmentReflections: 1
     - _Fullscreen_DepthWrite: 0
     - _GlossMapScale: 0
@@ -157,7 +157,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _Offset: 0.003
+    - _Offset: 0.001
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
