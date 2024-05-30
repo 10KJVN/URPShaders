@@ -9,3 +9,4 @@ public class MyRenderPipelineAsset : RenderPipelineAsset
         return new MyRenderPipeline();
     }
 }
+
