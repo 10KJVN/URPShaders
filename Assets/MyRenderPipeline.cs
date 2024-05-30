@@ -7,7 +7,7 @@ public class MyRenderPipeline : RenderPipeline
         
     protected override void Render(ScriptableRenderContext context, Camera[] cameras)
     {
-        Debug.Log("Render pipeline executing");
+        //Debug.Log("Render pipeline executing");
         foreach (Camera camera in cameras)
         {
             //Debug.Log($"Rendering camera: {camera.name}");
