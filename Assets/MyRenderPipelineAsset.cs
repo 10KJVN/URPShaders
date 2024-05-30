@@ -8,6 +8,7 @@ public class MyRenderPipelineAsset : RenderPipelineAsset<MyRenderPipeline>
     {
         return new MyRenderPipeline();
     }
-}
+   
+} 
 
 
