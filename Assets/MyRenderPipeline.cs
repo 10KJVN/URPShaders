@@ -27,7 +27,7 @@ public class MyRenderPipeline : RenderPipeline
             //var cullResults = context.Cull(ref cullingParams);
             
             var shaderTagId = new ShaderTagId("SRPDefaultUnlit");
-            SortingSettings sortingSettings = new SortingSettings(camera);
+            var sortingSettings = new SortingSettings(camera);
             var drawSettings = new DrawingSettings( new ShaderTagId("SRPDefaultUnlit"), new SortingSettings(camera));
             var filterSettings = new FilteringSettings(RenderQueueRange.all);
 
