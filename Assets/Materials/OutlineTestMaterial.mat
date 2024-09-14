@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: OutlineTestMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: aeb1a73bb9053af4bab6f0ccfe459478, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 127859f31eb4e584a98e5c2faf8f5285, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -51,6 +51,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _OutlineThickness: 0.25
     - _OutlinesAcuteDepthStartDot: 0.8
     - _OutlinesAcuteDepthTresholdMult: 0
     - _OutlinesDepthStrenght: 1
@@ -63,9 +64,13 @@ Material:
     - _OutlinesNormalsStrenght: 1
     - _OutlinesNormalsThreshold: 1
     - _OutlinesNormalsTightening: 12.37
-    - _OutlinesThickness: 0.05
+    - _OutlinesThickness: 0.5
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _SpecBrightness: 0.7
+    - _SpecFocus: 32
+    - _VariantThreshold: 5
+    - _WhiteMultiplier: 0.1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0}
     - _OutlinesColor: {r: 0, g: 0, b: 0, a: 0}

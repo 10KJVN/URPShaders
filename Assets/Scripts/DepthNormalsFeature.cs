@@ -1,38 +1,15 @@
-// MIT License
-
-// Copyright (c) 2021 NedMakesGames
-
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files(the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and / or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions :
-
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-// Required for RenderGraph
+using UnityEngine.Rendering.RendererUtils;
 
 public class DepthNormalsFeature : ScriptableRendererFeature {
     class RenderPass : ScriptableRenderPass {
-
         private Material material;
-        private RTHandle destinationHandle; 
+        private RTHandle destinationHandle;
         private List<ShaderTagId> shaderTags;
-        private FilteringSettings filteringSettings;
+        private FilteringSettings filteringSettings; //To-Do fix this because its probably obsolete in Unity 6
 
         public RenderPass(Material material) : base() {
             this.material = material;
@@ -43,41 +20,36 @@ public class DepthNormalsFeature : ScriptableRendererFeature {
             destinationHandle = RTHandles.Alloc("_DepthNormalsTexture", name: "_DepthNormalsTexture");
         }
 
-        public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor) {
+        // Configure the pass by creating a temporary render texture and readying it for rendering
+        public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor) { //To-Do fix this because its probably obsolete in Unity 6
             destinationHandle = RTHandles.Alloc(cameraTextureDescriptor, FilterMode.Point, TextureWrapMode.Clamp, name: "_DepthNormalsTexture");
-            ConfigureTarget(destinationHandle);  
+            ConfigureTarget(destinationHandle);
             ConfigureClear(ClearFlag.All, Color.black);
         }
 
-        public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData) {
+        public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData) { //To-Do fix this because its probably obsolete in Unity 6
+            CommandBuffer cmd = CommandBufferPool.Get("DepthNormals Pass");
+
+            // Create drawing settings
             var drawSettings = CreateDrawingSettings(shaderTags, ref renderingData, renderingData.cameraData.defaultOpaqueSortFlags);
             drawSettings.overrideMaterial = material;
-            context.DrawRenderers(renderingData.cullResults, ref drawSettings, ref filteringSettings);
+
+            // Use the RendererList API
+            var rendererListDesc = new RendererListDesc(shaderTags[0], renderingData.cullResults, renderingData.cameraData.camera) {
+                sortingCriteria = SortingCriteria.CommonOpaque,
+                renderQueueRange = RenderQueueRange.opaque,
+                overrideMaterial = material
+            };
+
+            RendererList rendererList = context.CreateRendererList(rendererListDesc);
+            cmd.DrawRendererList(rendererList);
+
+            context.ExecuteCommandBuffer(cmd);
+            CommandBufferPool.Release(cmd);
         }
 
         public override void FrameCleanup(CommandBuffer cmd) {
-            RTHandles.Release(destinationHandle);
-        }
-
-        /* New method to implement Render Graph
-        public override void RecordRenderGraph(UnityEngine.Rendering.RenderGraphModule.RenderGraph renderGraph, FrameResources frameResources, ref RenderingData renderingData) {
-            // Create a RenderGraph pass
-            using (var builder = renderGraph.AddRenderPass<PassData>("DepthNormals Pass", out var passData)) {
-                passData.material = material;
-                passData.filteringSettings = filteringSettings;
-
-                builder.SetRenderFunc((PassData data, UnityEngine.Rendering.RenderGraphModule.RenderGraphContext rgContext) => {
-                    var cmd = rgContext.cmd;
-                    var drawSettings = CreateDrawingSettings(shaderTags, ref renderingData, renderingData.cameraData.defaultOpaqueSortFlags);
-                    drawSettings.overrideMaterial = data.material;
-                    rgContext.renderContext.DrawRenderers(renderingData.cullResults, ref drawSettings, ref data.filteringSettings);
-                });
-            }
-        }*/
-
-        private class PassData {
-            public Material material;
-            public FilteringSettings filteringSettings;
+            RTHandles.Release(destinationHandle);  // Properly release the RTHandle
         }
     }
 
