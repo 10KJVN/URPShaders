@@ -217,7 +217,17 @@
         }
     ],
     "m_GroupDatas": [],
-    "m_StickyNoteDatas": [],
+    "m_StickyNoteDatas": [
+        {
+            "m_Id": "6f3c4669da3f4e37a77f0563ebdf9488"
+        },
+        {
+            "m_Id": "b9e00d97465b47269fd853381872bdd6"
+        },
+        {
+            "m_Id": "8618a35cc7c0487bb97c71c40dc9ab08"
+        }
+    ],
     "m_Edges": [
         {
             "m_OutputSlot": {
@@ -4596,6 +4606,26 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
+    "m_ObjectId": "6f3c4669da3f4e37a77f0563ebdf9488",
+    "m_Title": "Compute Edges",
+    "m_Content": "- Gets all edges of a pixel per point meassured on the screen. - Create outlines by meassured World Normals                        - Or meassure these edges by the Depth sampled (requires depth texture to be enabled)",
+    "m_TextSize": 0,
+    "m_Theme": 0,
+    "m_Position": {
+        "serializedVersion": "2",
+        "x": -2693.0,
+        "y": -298.0,
+        "width": 342.0,
+        "height": 160.0
+    },
+    "m_Group": {
+        "m_Id": ""
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
     "m_ObjectId": "70173ad9bfba4254b5041dcffd31c6e4",
     "m_Id": 0,
@@ -5213,6 +5243,26 @@
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
+    "m_ObjectId": "8618a35cc7c0487bb97c71c40dc9ab08",
+    "m_Title": "Outline Color",
+    "m_Content": "Write something here",
+    "m_TextSize": 0,
+    "m_Theme": 1,
+    "m_Position": {
+        "serializedVersion": "2",
+        "x": -307.0,
+        "y": 173.0,
+        "width": 202.0,
+        "height": 100.0
+    },
+    "m_Group": {
+        "m_Id": ""
     }
 }
 
@@ -6794,6 +6844,26 @@
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
+    "m_ObjectId": "b9e00d97465b47269fd853381872bdd6",
+    "m_Title": "Outline Thickness ->",
+    "m_Content": "Default Value =\n",
+    "m_TextSize": 0,
+    "m_Theme": 0,
+    "m_Position": {
+        "serializedVersion": "2",
+        "x": -2869.0,
+        "y": 288.0,
+        "width": 217.0,
+        "height": 100.0
+    },
+    "m_Group": {
+        "m_Id": ""
     }
 }
 

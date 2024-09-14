@@ -56,8 +56,8 @@ MonoBehaviour:
         m_Bits: 8
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: 07106d21a46b34d4da637fac4c877481, type: 2}
-    overrideMaterialPassIndex: 4
-    overrideShader: {fileID: 0}
+    overrideMaterialPassIndex: 0
+    overrideShader: {fileID: -6465566751694194690, guid: aeb1a73bb9053af4bab6f0ccfe459478, type: 3}
     overrideShaderPassIndex: 0
     overrideMode: 1
     overrideDepthState: 1
@@ -73,7 +73,7 @@ MonoBehaviour:
     cameraSettings:
       overrideCamera: 1
       restoreCamera: 1
-      offset: {x: -0.03, y: 0.03, z: -0.3, w: 0}
+      offset: {x: 0.003, y: 0.003, z: -0.003, w: 0}
       cameraFieldOfView: 60
 --- !u!114 &11400000
 MonoBehaviour:
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Active: 1
   injectionPoint: 600
   fetchColorBuffer: 1
-  requirements: 2
+  requirements: 3
   passMaterial: {fileID: 2100000, guid: 4e2c7a70096f9124fb42a1594bb70c61, type: 2}
   passIndex: 0
   bindDepthStencilAttachment: 0

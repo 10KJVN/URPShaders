@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 524370927}
   - component: {fileID: 524370926}
   - component: {fileID: 524370925}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -748,7 +748,7 @@ GameObject:
   - component: {fileID: 762092226}
   - component: {fileID: 762092225}
   - component: {fileID: 762092224}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Sphere (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2017,7 +2017,7 @@ GameObject:
   - component: {fileID: 1722768074}
   - component: {fileID: 1722768073}
   - component: {fileID: 1722768072}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2251,10 +2251,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 0
+  priority: 1
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 288a415025546f74db9cfdd99a47cce3, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 10fc4df2da32a41aaa32d77bc913491c, type: 2}
 --- !u!4 &1781853550
 Transform:
   m_ObjectHideFlags: 0
@@ -2282,7 +2282,7 @@ GameObject:
   - component: {fileID: 1864889049}
   - component: {fileID: 1864889048}
   - component: {fileID: 1864889047}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2455,7 +2455,7 @@ GameObject:
   - component: {fileID: 1963462206}
   - component: {fileID: 1963462205}
   - component: {fileID: 1963462204}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
