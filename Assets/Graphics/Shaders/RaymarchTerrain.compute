@@ -1,4 +1,5 @@
 #pragma kernel CSMain
+#include "Includes/SDFFunctions2.hlsl"
 
 Texture2D<float4> _Result; // Output render texture
 RWTexture2D<float4> Result; // Output for writing ray marching results
@@ -19,6 +20,9 @@ void CSMain (uint3 id : SV_DispatchThreadID)
 
     // Compute ray direction from camera
     float3 rayDir = normalize(_CameraForward + uv.x * right + uv.y * up);
+
+    // Call ray marching function to compute distance
+    float distance = RaymarchTerrain(_CameraPosition, rayDir);
 
     Result[id.xy] = float4(id.x & id.y, (id.x & 15)/15.0, (id.y & 15)/15.0, 0.0);
 }
