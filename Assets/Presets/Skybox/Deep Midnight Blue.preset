@@ -54,7 +54,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: disabledShaderPasses.Array.size
-    value: 0
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: 'disabledShaderPasses.Array.data[0]'
+    value: MOTIONVECTORS
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_LockedProperties
@@ -348,4 +352,13 @@ Preset:
     propertyPath: m_BuildTextureStacks.Array.size
     value: 0
     objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_AllowLocking
+    value: 1
+    objectReference: {fileID: 0}
   m_ExcludedProperties: []
+  m_CoupledType:
+    m_NativeTypeID: 0
+    m_ManagedTypePPtr: {fileID: 0}
+    m_ManagedTypeFallback: 
+  m_CoupledProperties: []

@@ -9,7 +9,11 @@
     ],
     "m_Keywords": [],
     "m_Dropdowns": [],
-    "m_CategoryData": [],
+    "m_CategoryData": [
+        {
+            "m_Id": "1ea0751c106b4094be7760adaa89ca21"
+        }
+    ],
     "m_Nodes": [
         {
             "m_Id": "41ec885ab5d24e43907c14bab944e1e0"
@@ -216,6 +220,7 @@
     "m_OutputNode": {
         "m_Id": "41ec885ab5d24e43907c14bab944e1e0"
     },
+    "m_SubDatas": [],
     "m_ActiveTargets": []
 }
 
@@ -496,6 +501,18 @@
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.CategoryData",
+    "m_ObjectId": "1ea0751c106b4094be7760adaa89ca21",
+    "m_Name": "",
+    "m_ChildObjectList": [
+        {
+            "m_Id": "44289e7eaac54cd4a91eb0dd6303bccd"
+        }
+    ]
 }
 
 {
@@ -1151,7 +1168,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
