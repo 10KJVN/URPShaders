@@ -40,7 +40,7 @@ float RaymarchTerrain(float3 ro, float3 rd)
         float d = TerrainSDF(p);    // Get the distance to the nearest terrain surface
         if (d < 0.001) break;       // Surface hit threshold
         dist += d;                  // Move along the ray by the distance
-        if (dist > 100.0) break;    // Exit if raymarching exceeds a certain distance
+        if (dist > 100.0) break;    // Exit if too far away
     }
     return dist;
 }
