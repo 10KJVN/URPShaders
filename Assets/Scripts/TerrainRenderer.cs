@@ -12,7 +12,7 @@ public class TerrainRenderer : MonoBehaviour
         mainCamera = Camera.main;
 
         // Set up the output texture
-        outputTexture = new RenderTexture(Screen.width, Screen.height, 24)
+        outputTexture = new RenderTexture(Screen.width, Screen.height, 0, RenderTextureFormat.ARGBFloat)
         {
             enableRandomWrite = true
         };
@@ -32,7 +32,7 @@ public class TerrainRenderer : MonoBehaviour
         
         // Set the output texture for both _Result and Result
         int kernelHandle = computeShader.FindKernel("CSMain");
-        computeShader.SetTexture(kernelHandle, "_Result", outputTexture);
+        //computeShader.SetTexture(kernelHandle, "_Result", outputTexture);
         computeShader.SetTexture(kernelHandle, "Result", outputTexture);
         
         // Dispatch the compute shader (number of thread groups based on screen size)

@@ -5,7 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - computeShader: {fileID: 7200000, guid: 5e003b0fdbcb5d242bc9ee95c54de6e7, type: 3}
-  - outputTexture: {fileID: 8400000, guid: cd29288f455716e4c8d52b591ed6010d, type: 2}
+  - outputTexture: {fileID: 8400000, guid: 48490cc8fb1644c4da29dcf56735d9c6, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

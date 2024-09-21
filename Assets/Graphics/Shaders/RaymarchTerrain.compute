@@ -1,7 +1,7 @@
 #pragma kernel CSMain
 #include "Includes/SDFFunctions2.hlsl"
 
-Texture2D<float4> _Result; // Output render texture
+//Texture2D<float4> Result; // Output render texture
 RWTexture2D<float4> Result; // Output for writing ray marching results
 
 // Camera parameters (set from C#)
@@ -17,7 +17,7 @@ float _AspectRatio;
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
     uint width, height;
-    _Result.GetDimensions(width, height);
+    Result.GetDimensions(width, height);
     
     // Get normalized coordinates in screen space
     float2 uv = (float2(id.xy) / float2(width, height)) * 2.0 - 1.0;
@@ -30,10 +30,12 @@ void CSMain (uint3 id : SV_DispatchThreadID)
     const float distance = RaymarchTerrain(_CameraPosition, rayDir);
 
     // Set color based on the result (simple shading for now)
-    float3 color = distance < 100.0 ? float3(1.0, 0.9, 0.6) : float3(0, 0, 0); // Desert color
-
-    // Write the result to the output texture
-    Result[id.xy] = float4(color, 1.0);
+    //float3 color = distance < 100.0 ? float3(1.0, 0.9, 0.6) : float3(0, 0, 0); // Desert color
     
+    float normalizedDistance = saturate(distance / 100.0); // Normalize to range [0,1]
+    //float3 color = float3(normalizedDistance, normalizedDistance, normalizedDistance); // Grayscale output
+    // Write the result to the output texture
+    Result[id.xy] = float4(normalizedDistance, normalizedDistance, normalizedDistance, 1.0); // Grayscale
+    //Result[id.xy] = float4(color, 1.0);
     //Result[id.xy] = float4(id.x & id.y, (id.x & 15)/15.0, (id.y & 15)/15.0, 0.0);
 }
