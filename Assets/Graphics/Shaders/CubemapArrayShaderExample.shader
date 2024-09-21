@@ -9,14 +9,6 @@ Shader "Custom/CubemapArrayShaderExample"
         _Exposure ("Exposure", Float) = 0.0
     }
     
-    // Terrain Signed Distance Function (SDF) using sine waves for procedural terrain
-    float TerrainSDF(float3 p) 
-    {
-        float height = sin(p.x * 0.1) * sin(p.z * 0.1) * 10.0;  // Sine wave-based terrain
-        return p.y - height; // Distance from point p to the terrain surface
-    }
-
-    
     SubShader
     {
         Tags { "RenderType"="Transparant" "IgnoreProjector"="True" "RenderType"="Transparent" "ForceSupported" = "True"}
@@ -46,6 +38,43 @@ Shader "Custom/CubemapArrayShaderExample"
         half _Alpha;
         half _Intensity;
         float _Exposure;
+
+        // Terrain Signed Distance Function (SDF)
+        float TerrainSDF(float3 p) 
+        {
+            float height = sin(p.x * 0.1) * sin(p.z * 0.1) * 10.0;  // Sine wave-based terrain
+            return p.y - height; // Distance from point p to the terrain surface
+        }
+
+        // Normal Calculation
+        float3 CalculateNormal(float3 p)
+        {
+            float eps = 0.001;
+            float dx = TerrainSDF(p + float3(eps, 0, 0)) - TerrainSDF(p - float3(eps, 0, 0));
+            float dy = TerrainSDF(p + float3(0, eps, 0)) - TerrainSDF(p - float3(0, eps, 0));
+            float dz = TerrainSDF(p + float3(0, 0, eps)) - TerrainSDF(p - float3(0, 0, eps));
+            return normalize(float3(dx, dy, dz));
+        }
+
+        // Lighting Function
+        float3 Lighting(float3 normal, float3 lightDir)
+        {
+            return max(dot(normal, lightDir), 0.0);  // Basic diffuse lighting
+        }
+        
+        // Raymarching Function
+        float RaymarchTerrain(float3 ro, float3 rd)
+        {
+            float dist = 0.0;
+            for (int i = 0; i < 100; i++) { // MAX_STEPS set to 100 for example
+                float3 p = ro + rd * dist;  // Current point along the ray
+                float d = TerrainSDF(p);    // Get the distance to the nearest terrain surface
+                if (d < 0.001) break;       // Surface hit threshold
+                dist += d;                  // Move along the ray by the distance
+                if (dist > 100.0) break;    // Exit if raymarching exceeds a certain distance
+            }
+            return dist;
+        }
     
         v2f vert (appdata v) {
             v2f o;
@@ -53,39 +82,26 @@ Shader "Custom/CubemapArrayShaderExample"
             float3 viewDir = -normalize(ObjSpaceViewDir(v.pos));
             o.uv = reflect(viewDir, v.nor);
             return o;
-        }
-
-        // Raymarching loop that calculates the distance to terrain
-        float RaymarchTerrain(float3 ro, float3 rd)
-        {
-            float dist = 0.0;
-            for (int i = 0; i < 100; i++) { // MAX_STEPS set to 100 for example
-            float3 p = ro + rd * dist;  // Current point along the ray
-            float d = TerrainSDF(p);    // Get the distance to the nearest terrain surface
-            if (d < 0.001) break;       // Surface hit threshold
-            dist += d;                  // Move along the ray by the distance
-            if (dist > 100.0) break;    // Exit if raymarching exceeds a certain distance
-        }
-        return dist;
-}
+        } // Vertex Shader
         
         half4 _MainTex_HDR;
         UNITY_DECLARE_TEXCUBEARRAY(_MainTex);
+        
         fixed4 frag (v2f i) : COLOR0
         {
             fixed4 c = UNITY_SAMPLE_TEXCUBEARRAY(_MainTex, float4(i.uv, _SliceIndex));
             fixed4 cmip = UNITY_SAMPLE_TEXCUBEARRAY_LOD(_MainTex, float4(i.uv, _SliceIndex), _Mip);
             
             // Raymarching Logic
-            float3 ro = _WorldSpaceCameraPos; // Ray origin (camera position)
-            float3 rd = normalize(i.uv); // Ray direction
-            float dist = RaymarchTerrain(ro, rd); // Perform raymarching
+            float3 ro = _WorldSpaceCameraPos;       // Ray origin (camera position)
+            float3 rd = normalize(i.uv);            // Ray direction
+            float dist = RaymarchTerrain(ro, rd);   // Perform raymarching
 
             // If raymarching hits terrain, color based on that
             if (dist < 100.0) {
-                float3 hitPoint = ro + rd * dist;  // Calculate the hit point
-                float3 normal = CalculateNormal(hitPoint);  // Terrain normal
-                float3 lightDir = normalize(float3(0.0, 1.0, 0.0));  // Simple overhead light
+                float3 hitPoint = ro + rd * dist;               // Calculate the hit point
+                float3 normal = CalculateNormal(hitPoint);          // Terrain normal
+                float3 lightDir = normalize(float3(0.0, 1.0, 0.0)); // Simple overhead light
 
                 c.rgb = Lighting(normal, lightDir);  // Apply lighting
             }
@@ -95,11 +111,11 @@ Shader "Custom/CubemapArrayShaderExample"
                 if (_Mip >= 0.0) c = cmip;
                 c.rgb = DecodeHDR (c, _MainTex_HDR) * _Intensity;
                 c.rgb *= exp2(_Exposure);
-                //c = lerp (c, c.aaaa, _Alpha);
-            } return c;
-        }
+            }
+            return c;
+        } // Fragment Shader
+        
         ENDCG
-
         }
     }
     Fallback Off
