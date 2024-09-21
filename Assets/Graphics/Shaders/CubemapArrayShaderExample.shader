@@ -75,12 +75,28 @@ Shader "Custom/CubemapArrayShaderExample"
         {
             fixed4 c = UNITY_SAMPLE_TEXCUBEARRAY(_MainTex, float4(i.uv, _SliceIndex));
             fixed4 cmip = UNITY_SAMPLE_TEXCUBEARRAY_LOD(_MainTex, float4(i.uv, _SliceIndex), _Mip);
-            if (_Mip >= 0.0)
-                c = cmip;
-            c.rgb = DecodeHDR (c, _MainTex_HDR) * _Intensity;
-            c.rgb *= exp2(_Exposure);
-            c = lerp (c, c.aaaa, _Alpha);
-            return c;
+            
+            // Raymarching Logic
+            float3 ro = _WorldSpaceCameraPos; // Ray origin (camera position)
+            float3 rd = normalize(i.uv); // Ray direction
+            float dist = RaymarchTerrain(ro, rd); // Perform raymarching
+
+            // If raymarching hits terrain, color based on that
+            if (dist < 100.0) {
+                float3 hitPoint = ro + rd * dist;  // Calculate the hit point
+                float3 normal = CalculateNormal(hitPoint);  // Terrain normal
+                float3 lightDir = normalize(float3(0.0, 1.0, 0.0));  // Simple overhead light
+
+                c.rgb = Lighting(normal, lightDir);  // Apply lighting
+            }
+            
+            else {    
+                //Otherwise, Fallback to texture
+                if (_Mip >= 0.0) c = cmip;
+                c.rgb = DecodeHDR (c, _MainTex_HDR) * _Intensity;
+                c.rgb *= exp2(_Exposure);
+                //c = lerp (c, c.aaaa, _Alpha);
+            } return c;
         }
         ENDCG
 
