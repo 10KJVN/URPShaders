@@ -9,6 +9,14 @@ Shader "Custom/CubemapArrayShaderExample"
         _Exposure ("Exposure", Float) = 0.0
     }
     
+    // Terrain Signed Distance Function (SDF) using sine waves for procedural terrain
+    float TerrainSDF(float3 p) 
+    {
+        float height = sin(p.x * 0.1) * sin(p.z * 0.1) * 10.0;  // Sine wave-based terrain
+        return p.y - height; // Distance from point p to the terrain surface
+    }
+
+    
     SubShader
     {
         Tags { "RenderType"="Transparant" "IgnoreProjector"="True" "RenderType"="Transparent" "ForceSupported" = "True"}
