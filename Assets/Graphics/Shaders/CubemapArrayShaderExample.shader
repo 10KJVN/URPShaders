@@ -14,7 +14,7 @@ Shader "Custom/CubemapArrayShaderExample"
         Tags { "RenderType"="Transparant" "IgnoreProjector"="True" "RenderType"="Transparent" "ForceSupported" = "True"}
         Pass 
         {
-            Cull Off
+        Cull Off
 
         CGPROGRAM
         #pragma vertex vert
@@ -48,16 +48,17 @@ Shader "Custom/CubemapArrayShaderExample"
         }
 
         // Raymarching loop that calculates the distance to terrain
-        float RaymarchTerrain(float3 ro, float3 rd) {
-        float dist = 0.0;
-        for (int i = 0; i < 100; i++) { // MAX_STEPS set to 100 for example
-        float3 p = ro + rd * dist;  // Current point along the ray
-        float d = TerrainSDF(p);    // Get the distance to the nearest terrain surface
-        if (d < 0.001) break;       // Surface hit threshold
-        dist += d;                  // Move along the ray by the distance
-        if (dist > 100.0) break;    // Exit if raymarching exceeds a certain distance
+        float RaymarchTerrain(float3 ro, float3 rd)
+        {
+            float dist = 0.0;
+            for (int i = 0; i < 100; i++) { // MAX_STEPS set to 100 for example
+            float3 p = ro + rd * dist;  // Current point along the ray
+            float d = TerrainSDF(p);    // Get the distance to the nearest terrain surface
+            if (d < 0.001) break;       // Surface hit threshold
+            dist += d;                  // Move along the ray by the distance
+            if (dist > 100.0) break;    // Exit if raymarching exceeds a certain distance
         }
-            return dist;
+        return dist;
 }
         
         half4 _MainTex_HDR;
@@ -72,7 +73,6 @@ Shader "Custom/CubemapArrayShaderExample"
             c.rgb *= exp2(_Exposure);
             c = lerp (c, c.aaaa, _Alpha);
             return c;
-            
         }
         ENDCG
 
