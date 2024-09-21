@@ -24,5 +24,8 @@ void CSMain (uint3 id : SV_DispatchThreadID)
     // Call ray marching function to compute distance
     float distance = RaymarchTerrain(_CameraPosition, rayDir);
 
+    // Set color based on the result (simple shading for now)
+    float3 color = distance < 100.0 ? float3(1.0, 0.9, 0.6) : float3(0, 0, 0); // Desert color
+
     Result[id.xy] = float4(id.x & id.y, (id.x & 15)/15.0, (id.y & 15)/15.0, 0.0);
 }
