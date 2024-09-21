@@ -7,6 +7,8 @@ RWTexture2D<float4> Result; // Output for writing ray marching results
 // Camera parameters (set from C#)
 float3 _CameraPosition;
 float3 _CameraForward;
+float3 _CameraRight;
+float3 _CameraUp;
 float _FieldOfView;
 float _AspectRatio;
 
@@ -14,15 +16,18 @@ float _AspectRatio;
 [numthreads(8,8,1)] // 64
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
+    uint width, height;
+    _Result.GetDimensions(width, height);
+    
     // Get normalized coordinates in screen space
-    float2 uv = (float2(id.xy) / float2(_Result.Width, _Result.Height)) * 2.0 - 1.0;
+    float2 uv = (float2(id.xy) / float2(width, height)) * 2.0 - 1.0;
     uv.x *= _AspectRatio; // Adjust for aspect ratio
 
     // Compute ray direction from camera
-    float3 rayDir = normalize(_CameraForward + uv.x * right + uv.y * up);
+    const float3 rayDir = normalize(_CameraForward + uv.x * _CameraRight + uv.y * _CameraUp);
 
     // Call ray marching function to compute distance
-    float distance = RaymarchTerrain(_CameraPosition, rayDir);
+    const float distance = RaymarchTerrain(_CameraPosition, rayDir);
 
     // Set color based on the result (simple shading for now)
     float3 color = distance < 100.0 ? float3(1.0, 0.9, 0.6) : float3(0, 0, 0); // Desert color
