@@ -9,10 +9,13 @@ float3 _CameraForward;
 float _FieldOfView;
 float _AspectRatio;
 
-[numthreads(8,8,1)]
+// Thread group size (nr. of threads per group)
+[numthreads(8,8,1)] // 64
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
-    // TODO: insert actual code here!
+    // Get normalized coordinates in screen space
+    float2 uv = (float2(id.xy) / float2(_Result.Width, _Result.Height)) * 2.0 - 1.0;
+    uv.x *= _AspectRatio; // Adjust for aspect ratio
 
     Result[id.xy] = float4(id.x & id.y, (id.x & 15)/15.0, (id.y & 15)/15.0, 0.0);
 }
