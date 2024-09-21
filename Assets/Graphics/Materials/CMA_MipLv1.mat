@@ -10,7 +10,7 @@ Material:
   m_Name: CMA_MipLv1
   m_Shader: {fileID: 4800000, guid: 4890df64a1b231a4ebd59f6c8963334f, type: 3}
   m_Parent: {fileID: 2100000, guid: 193db3638c5a0d74188b70c9698f8a28, type: 2}
-  m_ModifiedSerializedProperties: 0
+  m_ModifiedSerializedProperties: 8
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -25,7 +25,9 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
+    - _Exposure: 0.5
     - _Mip: 1
+    - _SliceIndex: 0
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
