@@ -1,7 +1,6 @@
 #pragma kernel CSMain
 #include "Includes/SDFFunctions2.hlsl"
 
-//Texture2D<float4> Result; // Output render texture
 RWTexture2D<float4> Result; // Output for writing ray marching results
 
 // Camera parameters (set from C#)
@@ -9,33 +8,28 @@ float3 _CameraPosition;
 float3 _CameraForward;
 float3 _CameraRight;
 float3 _CameraUp;
-float _FieldOfView;
 float _AspectRatio;
 
 // Thread group size (nr. of threads per group)
-[numthreads(8,8,1)] // 64
+[numthreads(8,8,1)] 
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
     uint width, height;
     Result.GetDimensions(width, height);
     
-    // Get normalized coordinates in screen space
+    // Get normalized screen-space coordinates
     float2 uv = (float2(id.xy) / float2(width, height)) * 2.0 - 1.0;
     uv.x *= _AspectRatio; // Adjust for aspect ratio
 
     // Compute ray direction from camera
-    const float3 rayDir = normalize(_CameraForward + uv.x * _CameraRight + uv.y * _CameraUp);
+    float3 rayDir = normalize(_CameraForward + uv.x * _CameraRight + uv.y * _CameraUp);
 
-    // Call ray marching function to compute distance
-    const float distance = RaymarchTerrain(_CameraPosition, rayDir);
+    // Ray march to compute the distance to the terrain
+    float distance = RaymarchTerrain(_CameraPosition, rayDir);
 
-    // Set color based on the result (simple shading for now)
-    //float3 color = distance < 100.0 ? float3(1.0, 0.9, 0.6) : float3(0, 0, 0); // Desert color
-    
-    float normalizedDistance = saturate(distance / 100.0); // Normalize to range [0,1]
-    //float3 color = float3(normalizedDistance, normalizedDistance, normalizedDistance); // Grayscale output
-    // Write the result to the output texture
-    Result[id.xy] = float4(normalizedDistance, normalizedDistance, normalizedDistance, 1.0); // Grayscale
-    //Result[id.xy] = float4(color, 1.0);
-    //Result[id.xy] = float4(id.x & id.y, (id.x & 15)/15.0, (id.y & 15)/15.0, 0.0);
+    // Set desert color based on the result
+    float3 color = distance < 100.0 ? float3(1.0, 0.9, 0.6) : float3(0, 0, 0);
+
+    // Write the final color to the output texture
+    Result[id.xy] = float4(color, 1.0);
 }
