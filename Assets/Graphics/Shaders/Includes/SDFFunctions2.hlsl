@@ -1,19 +1,20 @@
 //SDFFunctions2.hlsl
+#include "PerlinNoiseFunction.hlsl"
 
-float TerrainSDF(float3 p) 
+/*float TerrainSDF(float3 p) 
 {
     // Control the frequency and amplitude of the sine waves
     float duneHeight = sin(p.x * 0.1) * sin(p.z * 0.1) * 5.0; // Dune-like wave patterns
     return p.y - duneHeight; // SDF of the terrain surface
-}
+}*/
 
-/*float TerrainSDF(float3 p) 
+float TerrainSDF(float3 p) 
 {
     // Use noise to vary the dunes
     float noiseFactor = perlinNoise(p.xz * 0.1);  // Apply Perlin noise to modulate the dunes
     float duneHeight = sin(p.x * 0.05) * sin(p.z * 0.05) * (5.0 + noiseFactor); 
     return p.y - duneHeight;
-}*/
+}
 
 float3 LightDirection = normalize(float3(0.0, 1.0, 0.0)); // Light coming from above (overhead light)
 
