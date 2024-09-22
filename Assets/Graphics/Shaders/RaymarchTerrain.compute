@@ -1,35 +1,55 @@
 #pragma kernel CSMain
 #include "Includes/SDFFunctions2.hlsl"
 
-RWTexture2D<float4> Result; // Output for writing ray marching results
+// Output texture
+RWTexture2D<float4> Result;
 
 // Camera parameters (set from C#)
 float3 _CameraPosition;
 float3 _CameraForward;
 float3 _CameraRight;
 float3 _CameraUp;
+float _FieldOfView;
 float _AspectRatio;
 
-// Thread group size (nr. of threads per group)
-[numthreads(8,8,1)] 
-void CSMain (uint3 id : SV_DispatchThreadID)
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
 {
     uint width, height;
     Result.GetDimensions(width, height);
     
-    // Get normalized screen-space coordinates
     float2 uv = (float2(id.xy) / float2(width, height)) * 2.0 - 1.0;
-    uv.x *= _AspectRatio; // Adjust for aspect ratio
+    uv.x *= _AspectRatio;
+    
+    const float3 rayDir = normalize(_CameraForward + uv.x * _CameraRight + uv.y * _CameraUp);
 
-    // Compute ray direction from camera
-    float3 rayDir = normalize(_CameraForward + uv.x * _CameraRight + uv.y * _CameraUp);
+    //float3 emissiveColor;
+    const float distance = RaymarchTerrain(_CameraPosition, rayDir);
+    
+    float3 color;
+    
+    if (distance < 100.0) {
+        // Ashy gradient: use height of the terrain to modify the color
+        float heightFactor = saturate((_CameraPosition.y - distance) / 10.0); // Modify this value for the steepness of the gradient
+        float3 ashColor = lerp(float3(0.8, 0.8, 0.8), float3(0.4, 0.4, 0.4), heightFactor); // From light grey to dark grey
+        color = ashColor;
+        
+    } else {
+        // Background color (black for now)
+        color = float3(0.0, 0.0, 0.0);
+    }
 
-    // Ray march to compute the distance to the terrain
-    float distance = RaymarchTerrain(_CameraPosition, rayDir);
+    // Check for moon's influence
+    float3 moonPosition = float3(50.0, 30.0, -100.0); // Same as in the SDF
+    float moonRadius = 10.0;  // Same as in the SDF
+    float moonDistance = MoonSDF(_CameraPosition, moonPosition, moonRadius); // Calculate distance to moon
 
-    // Set desert color based on the result
-    float3 color = distance < 100.0 ? float3(1.0, 0.9, 0.6) : float3(0, 0, 0);
+    if (moonDistance < 0.0) {
+        // If we're inside the moon, use its emissive color
+        float3 moonColor = float3(1.0, 0.9, 0.6); // Example moon color
+        color += moonColor * 0.5; // Add the moon's color to the final color (adjust brightness as needed)
+    }
 
-    // Write the final color to the output texture
+    // Write the result to the output texture
     Result[id.xy] = float4(color, 1.0);
 }

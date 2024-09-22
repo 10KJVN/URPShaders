@@ -16,7 +16,7 @@ float TerrainSDF(float3 p)
     return p.y - duneHeight;
 }
 
-float3 LightDirection = normalize(float3(0.0, 1.0, 0.0)); // Light coming from above (overhead light)
+//float3 LightDirection = normalize(float3(0.0, 1.0, 0.0)); // Light coming from above (overhead light)
 
 float3 CalculateNormal(float3 p)
 {
@@ -27,9 +27,10 @@ float3 CalculateNormal(float3 p)
     return normalize(float3(dx, dy, dz));
 }
 
-float3 Lighting(float3 normal)
+float3 Lighting(float3 normal, float3 lightDirection)
 {
-    return max(dot(normal, LightDirection), 0.0);  // Diffuse lighting
+    //return max(dot(normal, LightDirection), 0.0);  // Diffuse lighting
+    return max(dot(normal, lightDirection), 0.0);
 }
 
 float3 DeadTreeSDF(float3 p, float3 treePosition)
@@ -49,23 +50,54 @@ float3 DeadTreeSDF(float3 p, float3 treePosition)
     return trunk;  // SDF for the tree trunk
 }
 
+float MoonSDF(float3 p, float3 moonPosition, float moonRadius)
+{
+    // SDF for a sphere (moon) at a specific position with a given radius
+    return length(p - moonPosition) - moonRadius;
+}
+
+// Combine the SDFs
+float CombinedSDF(float3 p)
+{
+    // Combine terrain, tree, and moon SDFs
+    float terrain = TerrainSDF(p);
+    
+    // Example tree at a random position
+    float3 treePosition = float3(10.0, 0.0, 20.0);
+    float tree = DeadTreeSDF(p, treePosition);
+
+    // Example moon with random position and radius
+    float3 moonPosition = float3(50.0, 30.0, -100.0); // Randomized position in the sky
+    float moonRadius = 10.0;  // Example moon size
+    float moon = MoonSDF(p, moonPosition, moonRadius);
+
+    // Return the minimum distance (closest surface) for rendering
+    return min(min(terrain, tree), moon);
+}
+
+float3 CalculateEmissive(float3 p, float3 moonPosition, float moonRadius, float3 moonColor, float emissiveStrength)
+{
+    float moonSDF = MoonSDF(p, moonPosition, moonRadius);
+    
+    // If the ray hits the moon (SDF close to 0), make it emissive
+    if (moonSDF < 0.001)
+    {
+        return moonColor * emissiveStrength;
+    }
+    
+    return float3(0, 0, 0); // No emissive if not hit
+}
+
 float RaymarchTerrain(float3 ro, float3 rd)
 {
     float dist = 0.0;
     for (int i = 0; i < 1000; i++) 
     {
         float3 p = ro + rd * dist;  // Current point along the ray
-
-        // Compute distances to the terrain and a tree at position (10,0,10)
-        float terrainDist = TerrainSDF(p);
-        float treeDist = DeadTreeSDF(p, float3(10, 0, 10));  // You can randomize or specify tree positions
-
-        // Combine terrain and tree SDFs by taking the minimum distance
-        float d = min(terrainDist, treeDist);
-        
+        float d = CombinedSDF(p);   // Get the distance to the nearest surface
         if (d < 0.001) break;       // Surface hit threshold
         dist += d;                  // Move along the ray by the distance
-        if (dist > 100.0) break;    // Exit if too far away
+        if (dist > 200.0) break;    // Exit if too far away
     }
     return dist;
 }
