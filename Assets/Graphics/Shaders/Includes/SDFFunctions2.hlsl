@@ -50,10 +50,19 @@ float3 DeadTreeSDF(float3 p, float3 treePosition)
     return trunk;  // SDF for the tree trunk
 }
 
-float MoonSDF(float3 p, float3 moonPosition, float moonRadius)
+float MoonSDF(float3 p, float3 moonPosition, float moonRadius, float crescentOffset)
 {
+    // Main sphere for the moon
+    float mainMoon = length(p - moonPosition) - moonRadius;
+
+    // Offset sphere to carve out crescent shape
+    float carveSphere = length(p - (moonPosition + float3(crescentOffset, 0.0, 0.0))) - moonRadius * 0.8;
+
+    // Combine shapes to form a crescent
+    return max(mainMoon, -carveSphere); // Use max to subtract the carveSphere from mainMoon
+    
     // SDF for a sphere (moon) at a specific position with a given radius
-    return length(p - moonPosition) - moonRadius;
+    //return length(p - moonPosition) - moonRadius;
 }
 
 // Combine the SDFs
@@ -69,7 +78,7 @@ float CombinedSDF(float3 p)
     // Example moon with random position and radius
     float3 moonPosition = float3(50.0, 30.0, -100.0); // Randomized position in the sky
     float moonRadius = 10.0;  // Example moon size
-    float moon = MoonSDF(p, moonPosition, moonRadius);
+    float moon = MoonSDF(p, moonPosition, moonRadius, length(0));
 
     // Return the minimum distance (closest surface) for rendering
     return min(min(terrain, tree), moon);
@@ -77,12 +86,12 @@ float CombinedSDF(float3 p)
 
 float3 CalculateEmissive(float3 p, float3 moonPosition, float moonRadius, float3 moonColor, float emissiveStrength)
 {
-    float moonSDF = MoonSDF(p, moonPosition, moonRadius);
+    //float moonSDF = MoonSDF(p, moonPosition, moonRadius);
     
     // If the ray hits the moon (SDF close to 0), make it emissive
-    if (moonSDF < 0.001)
+    //if (moonSDF < 0.001)
     {
-        return moonColor * emissiveStrength;
+        //return moonColor * emissiveStrength;
     }
     
     return float3(0, 0, 0); // No emissive if not hit

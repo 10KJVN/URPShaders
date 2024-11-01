@@ -42,12 +42,14 @@ void CSMain(uint3 id : SV_DispatchThreadID)
     // Check for moon's influence
     float3 moonPosition = float3(50.0, 30.0, -100.0); // Same as in the SDF
     float moonRadius = 10.0;  // Same as in the SDF
-    float moonDistance = MoonSDF(_CameraPosition, moonPosition, moonRadius); // Calculate distance to moon
+    float cresentOffset = 50.0; 
 
-    if (moonDistance < 0.0) {
+    float moonDistance = MoonSDF(_CameraPosition, moonPosition, moonRadius, cresentOffset); // Calculate distance to moon
+
+    if (moonDistance < 384.4) {
         // If we're inside the moon, use its emissive color
-        float3 moonColor = float3(1.0, 0.9, 0.6); // Example moon color
-        color += moonColor * 0.5; // Add the moon's color to the final color (adjust brightness as needed)
+        float3 snowyMintColor = float3(0.875, 0.976, 0.902); // Snowy mint color
+        color += snowyMintColor * 0.8 ; // Add the moon's color to the final color (adjust brightness as needed)
     }
 
     // Write the result to the output texture
