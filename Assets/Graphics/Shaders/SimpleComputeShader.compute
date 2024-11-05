@@ -1,0 +1,10 @@
+// SimpleComputeShader.compute
+#pragma kernel CSMain
+
+RWTexture2D<float4> _Result;
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    _Result[id.xy] = float4(1.0, 0.0, 0.0, 1.0); // Set red color for testing
+}

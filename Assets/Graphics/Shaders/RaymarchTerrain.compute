@@ -12,46 +12,63 @@ float3 _CameraUp;
 float _FieldOfView;
 float _AspectRatio;
 
+// Example variables needed for RaymarchTerrain
+float frequency = 1.0;        // Define as needed
+float amplitude = 1.0;        // Define as needed
+float3 treePosition = float3(0.0, 0.0, 0.0); // Set as appropriate for your scene
+float trunkHeight = 5.0;      // Set based on your needs
+float trunkRadius = 1.0;      // Set based on your needs
+float3 moonPosition = float3(0.0, 100.0, 0.0); // Set as appropriate for your moon
+float moonRadius = 20.0;       // Set based on your needs
+
+float3 CalculateRayDirection(float2 uv) {
+    return normalize(_CameraForward + uv.x * _CameraRight + uv.y * _CameraUp);
+}
+
+// Define the RaymarchTerrain function here
+float RaymarchTerrain(float3 ro, float3 rd, float frequency, float amplitude, float3 treePosition, float trunkHeight, float trunkRadius, float3 moonPosition, float moonRadius);
+
 [numthreads(8, 8, 1)]
 void CSMain(uint3 id : SV_DispatchThreadID)
 {
     uint width, height;
     Result.GetDimensions(width, height);
-    
+
     float2 uv = (float2(id.xy) / float2(width, height)) * 2.0 - 1.0;
     uv.x *= _AspectRatio;
-    
-    const float3 rayDir = normalize(_CameraForward + uv.x * _CameraRight + uv.y * _CameraUp);
 
-    //float3 emissiveColor;
-    const float distance = RaymarchTerrain(_CameraPosition, rayDir);
-    
+    // Calculate ray direction and store in rayDir
+    float3 rayDir = CalculateRayDirection(uv);
+
+    // Fixed position and distance for the moon relative to the camera
+    const float moonAngleDegrees = 26.0;
+    const float moonDistanceFromCamera = 300.0;
+
+    // Calculate moon position in the sky based on angle and camera position
+    const float3 moonDirection = normalize(float3(cos(radians(moonAngleDegrees)), 0.3, sin(radians(moonAngleDegrees))));
+    moonPosition = _CameraPosition + moonDirection * moonDistanceFromCamera; // Use previously declared variable
+
+    // Call the RaymarchTerrain function to get distanceToTerrain
+    float distanceToTerrain = RaymarchTerrain(_CameraPosition, rayDir, frequency, amplitude, treePosition, trunkHeight, trunkRadius, moonPosition, moonRadius);
+
     float3 color;
-    
-    if (distance < 100.0) {
-        // Ashy gradient: use height of the terrain to modify the color
-        float heightFactor = saturate((_CameraPosition.y - distance) / 10.0); // Modify this value for the steepness of the gradient
-        float3 ashColor = lerp(float3(0.8, 0.8, 0.8), float3(0.4, 0.4, 0.4), heightFactor); // From light grey to dark grey
+
+    if (distanceToTerrain < 100.0) {
+        const float heightFactor = saturate((_CameraPosition.y - distanceToTerrain) / 10.0);
+        const float3 ashColor = lerp(float3(0.8, 0.8, 0.8), float3(0.4, 0.4, 0.4), heightFactor);
         color = ashColor;
-        
     } else {
-        // Background color (black for now)
         color = float3(0.0, 0.0, 0.0);
     }
 
-    // Check for moon's influence
-    float3 moonPosition = float3(50.0, 30.0, -100.0); // Same as in the SDF
-    float moonRadius = 10.0;  // Same as in the SDF
-    float cresentOffset = 50.0; 
+    const float moonRadius = 20.0;
+    const float moonDistance = MoonSDF(_CameraPosition, moonPosition, moonRadius);
 
-    float moonDistance = MoonSDF(_CameraPosition, moonPosition, moonRadius, cresentOffset); // Calculate distance to moon
-
-    if (moonDistance < 384.4) {
-        // If we're inside the moon, use its emissive color
-        float3 snowyMintColor = float3(0.875, 0.976, 0.902); // Snowy mint color
-        color += snowyMintColor * 0.8 ; // Add the moon's color to the final color (adjust brightness as needed)
+    if (moonDistance < 0.1) {
+        const float3 snowyMintColor = float3(0.875, 0.976, 0.902);
+        const float emissiveStrength = 1.5;
+        color += snowyMintColor * emissiveStrength;
     }
 
-    // Write the result to the output texture
     Result[id.xy] = float4(color, 1.0);
 }
