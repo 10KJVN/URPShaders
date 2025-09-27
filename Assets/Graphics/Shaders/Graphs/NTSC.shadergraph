@@ -5405,7 +5405,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -5826,7 +5826,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -7033,17 +7033,17 @@
     "m_Type": "UnityEditor.ShaderGraph.AddNode",
     "m_ObjectId": "0e177079290b4a54bf98bc0f5f51d035",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "cce21d7ff4924cb6a582d566f2923b0f"
     },
     "m_Name": "Add",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -2593.999755859375,
-            "y": -5226.99951171875,
-            "width": 125.999755859375,
-            "height": 117.99951171875
+            "x": -2594.000244140625,
+            "y": -5410.0,
+            "width": 208.000244140625,
+            "height": 302.0
         }
     },
     "m_Slots": [
@@ -7063,7 +7063,7 @@
         "plus"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": false,
+    "m_PreviewExpanded": true,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
@@ -7456,7 +7456,7 @@
     "m_Title": "Obtain Screen Pos & Depth of all each pixel",
     "m_Position": {
         "x": 157.0,
-        "y": -2820.0
+        "y": -2820.000244140625
     }
 }
 
@@ -7814,7 +7814,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -8446,7 +8446,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -9643,7 +9643,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -9810,7 +9810,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -9846,7 +9846,7 @@
     "m_ObjectId": "2165a377e50a42548497c2764206c389",
     "m_Title": "Fullscreen RGB ",
     "m_Position": {
-        "x": -202.00048828125,
+        "x": -199.0,
         "y": -5793.00048828125
     }
 }
@@ -10656,7 +10656,7 @@
         "coordinates"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
@@ -11007,7 +11007,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -11069,16 +11069,16 @@
     "m_Type": "UnityEditor.ShaderGraph.AddNode",
     "m_ObjectId": "28ace13ea1244a888f17c95b83624a20",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "cce21d7ff4924cb6a582d566f2923b0f"
     },
     "m_Name": "Add",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -2593.999755859375,
-            "y": -5766.0,
-            "width": 207.999755859375,
+            "x": -2594.000244140625,
+            "y": -5756.0,
+            "width": 208.000244140625,
             "height": 302.0
         }
     },
@@ -11781,7 +11781,7 @@
     "m_Type": "UnityEditor.ShaderGraph.CombineNode",
     "m_ObjectId": "2e6dde1d4fc84f3eb890b6fe548364a5",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "cce21d7ff4924cb6a582d566f2923b0f"
     },
     "m_Name": "Combine",
     "m_DrawState": {
@@ -11789,9 +11789,9 @@
         "m_Position": {
             "serializedVersion": "2",
             "x": -2234.0,
-            "y": -4731.99951171875,
-            "width": 208.0,
-            "height": 349.99951171875
+            "y": -4732.0,
+            "width": 140.0,
+            "height": 166.0
         }
     },
     "m_Slots": [
@@ -11821,7 +11821,7 @@
         "append"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
@@ -12306,10 +12306,10 @@
     "m_Theme": 1,
     "m_Position": {
         "serializedVersion": "2",
-        "x": -3393.60009765625,
-        "y": -5955.2001953125,
-        "width": 2466.400146484375,
-        "height": 1616.80029296875
+        "x": -3389.0,
+        "y": -5955.0,
+        "width": 2467.0,
+        "height": 1617.0
     },
     "m_Group": {
         "m_Id": "cce21d7ff4924cb6a582d566f2923b0f"
@@ -12933,7 +12933,7 @@
     "m_ObjectId": "385b9d2514814e8c9fb0f1996af2bdb9",
     "m_Title": "Blurring",
     "m_Position": {
-        "x": -3458.0,
+        "x": -3458.000244140625,
         "y": 2795.0
     }
 }
@@ -13814,7 +13814,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     }
 }
@@ -14174,7 +14174,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -14281,7 +14281,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -14423,10 +14423,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -2144.0,
-            "y": -5766.39990234375,
-            "width": 118.400146484375,
-            "height": 33.60009765625
+            "x": -2212.0,
+            "y": -5552.00048828125,
+            "width": 117.999755859375,
+            "height": 34.0
         }
     },
     "m_Slots": [
@@ -15545,7 +15545,7 @@
     "m_Title": "More detailed Blurring",
     "m_Position": {
         "x": -666.0,
-        "y": 2992.999755859375
+        "y": 2993.0
     }
 }
 
@@ -18637,8 +18637,8 @@
     "m_ObjectId": "64d3a0740c3649fd82a21d6a9f2cba3c",
     "m_Title": "Luminance (Y)",
     "m_Position": {
-        "x": -2944.0,
-        "y": 5694.0
+        "x": -2944.000244140625,
+        "y": 5694.0009765625
     }
 }
 
@@ -19782,15 +19782,15 @@
     "m_Type": "UnityEditor.ShaderGraph.RedirectNodeData",
     "m_ObjectId": "6dc69a1028054df1b3c606d2ac3dadfa",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "cce21d7ff4924cb6a582d566f2923b0f"
     },
     "m_Name": "Redirect Node",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -2718.0,
-            "y": -5191.99951171875,
+            "x": -2746.000244140625,
+            "y": -5340.0,
             "width": 56.0,
             "height": 24.0
         }
@@ -19957,7 +19957,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -20290,7 +20290,7 @@
     "m_ObjectId": "723fa1306eb349a4a33964d1648b86a8",
     "m_Title": "Scene Depth + Custom  BG Color",
     "m_Position": {
-        "x": 1030.0,
+        "x": 1029.999755859375,
         "y": 3658.0
     }
 }
@@ -20437,7 +20437,7 @@
         "append"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
@@ -22798,13 +22798,13 @@
     },
     "m_Name": "Sample Texture 2D",
     "m_DrawState": {
-        "m_Expanded": true,
+        "m_Expanded": false,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1935.9998779296875,
-            "y": -5691.2001953125,
-            "width": 208.0,
-            "height": 432.0
+            "x": -1936.0,
+            "y": -5493.0,
+            "width": 183.0,
+            "height": 249.0
         }
     },
     "m_Slots": [
@@ -22837,7 +22837,7 @@
         "tex2d"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
@@ -23401,7 +23401,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     }
 }
@@ -23926,7 +23926,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -25389,7 +25389,7 @@
     },
     "m_Name": "Sample Texture 2D",
     "m_DrawState": {
-        "m_Expanded": true,
+        "m_Expanded": false,
         "m_Position": {
             "serializedVersion": "2",
             "x": -1935.9998779296875,
@@ -25428,7 +25428,7 @@
         "tex2d"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
@@ -25558,7 +25558,7 @@
     },
     "m_Name": "Sample Texture 2D",
     "m_DrawState": {
-        "m_Expanded": true,
+        "m_Expanded": false,
         "m_Position": {
             "serializedVersion": "2",
             "x": -1936.0,
@@ -25597,7 +25597,7 @@
         "tex2d"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
@@ -27210,8 +27210,8 @@
     "m_ObjectId": "a0f9d4f6c2494700949577570aba007e",
     "m_Title": "Chrominance Blue (U)",
     "m_Position": {
-        "x": -1322.0001220703125,
-        "y": 4923.0
+        "x": -1322.000244140625,
+        "y": 4923.0009765625
     }
 }
 
@@ -28579,7 +28579,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "isMainTexture": false,
@@ -30723,7 +30723,7 @@
         "append"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
@@ -31994,8 +31994,8 @@
     "m_ObjectId": "c5a1e8ccf8e94e69ad9a8d19bc466359",
     "m_Title": "Chrominance Red (V)",
     "m_Position": {
-        "x": -1317.0001220703125,
-        "y": 6350.00048828125
+        "x": -1317.0,
+        "y": 6350.0
     }
 }
 
@@ -32975,8 +32975,8 @@
     "m_ObjectId": "cce21d7ff4924cb6a582d566f2923b0f",
     "m_Title": "In-object RGB",
     "m_Position": {
-        "x": -3417.60009765625,
-        "y": -6015.19970703125
+        "x": -3414.000244140625,
+        "y": -6014.00048828125
     }
 }
 
@@ -33710,7 +33710,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -35455,15 +35455,15 @@
     "m_Type": "UnityEditor.ShaderGraph.RedirectNodeData",
     "m_ObjectId": "e1f32dc77b084c5b8763ba11992a082c",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "cce21d7ff4924cb6a582d566f2923b0f"
     },
     "m_Name": "Redirect Node",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -2718.0,
-            "y": -5141.99951171875,
+            "x": -2718.000244140625,
+            "y": -5070.0,
             "width": 56.0,
             "height": 24.0
         }
@@ -35498,7 +35498,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -36367,7 +36367,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     }
 }
@@ -36887,7 +36887,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -38197,8 +38197,8 @@
     "m_ObjectId": "f632e51aebc34e5ba8931cc4fdb9e499",
     "m_Title": "More detailed Blurring",
     "m_Position": {
-        "x": -3018.0,
-        "y": 7071.0
+        "x": -3057.000244140625,
+        "y": 7018.0
     }
 }
 

@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+[Obsolete("Obsolete")]
 
 [Serializable, VolumeComponentMenuForRenderPipeline("NeonGame/CustomPostScreenTint", typeof(UniversalRenderPipeline))]
 

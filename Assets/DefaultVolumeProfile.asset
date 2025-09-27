@@ -86,6 +86,25 @@ MonoBehaviour:
   worldOffset:
     m_OverrideState: 1
     m_Value: {x: 0, y: 0, z: 0}
+--- !u!114 &-6268955023452890945
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a225c24aa2497469b8930b727a1f82, type: 3}
+  m_Name: CustomPostScreenTint
+  m_EditorClassIdentifier: 
+  active: 1
+  tintIntensity:
+    m_OverrideState: 1
+    m_Value: 1
+  tintColor:
+    m_OverrideState: 1
+    m_Value: {r: 0.26352793, g: 0.8867924, b: 0.36690298, a: 1}
 --- !u!114 &-5493506547886554829
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -484,7 +503,7 @@ MonoBehaviour:
   - {fileID: -2869633326377429740}
   - {fileID: 2899522428197393884}
   - {fileID: -6922974494576100714}
-  - {fileID: 9100119902642569955}
+  - {fileID: -6268955023452890945}
 --- !u!114 &475165171275641560
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -769,25 +788,6 @@ MonoBehaviour:
   rounded:
     m_OverrideState: 1
     m_Value: 0
---- !u!114 &9100119902642569955
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2a225c24aa2497469b8930b727a1f82, type: 3}
-  m_Name: CustomPostScreenTint
-  m_EditorClassIdentifier: 
-  active: 1
-  tintIntensity:
-    m_OverrideState: 1
-    m_Value: 1.35
-  tintColor:
-    m_OverrideState: 1
-    m_Value: {r: 0.07539296, g: 1, b: 0, a: 1}
 --- !u!114 &9114432293244643079
 MonoBehaviour:
   m_ObjectHideFlags: 3
